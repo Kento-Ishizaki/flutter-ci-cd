@@ -34,6 +34,7 @@ jobs:
           flutter-version: '2.0.5'
       - run: flutter pub get
       - run: flutter test
+      - run: flutter build apk
       
       #-- Slack通知 --#
       # 成功
