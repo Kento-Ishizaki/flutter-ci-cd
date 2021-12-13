@@ -37,7 +37,7 @@ jobs:
           flutter test
           flutter build apk
           mkdir build/apks
-          cp bundle/app/outputs/flutter-apk/*.apk build/apks
+          cp build/app/outputs/flutter-apk/*.apk build/apks
       
       #-- Slack通知 --#
       # 成功
