@@ -10,7 +10,15 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
+    
+#-------------------------#
+# 環境変数
+#-------------------------#
+env:
+  SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+  SLACK_USERNAME: DeployBot
+  SLACK_CHANNEL: develop
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,3 +34,20 @@ jobs:
           flutter-version: '2.0.5'
       - run: flutter pub get
       - run: flutter test
+      
+      #-- Slack通知 --#
+      # 成功
+      - name: Slack Notification on Success
+        if: ${{ success() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_TITLE: Deploy Success
+          SLACK_COLOR: good
+
+      # 失敗
+      - name: Slack Notification on Failure
+        if: ${{ failure() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_TITLE: Deploy Failure
+          SLACK_COLOR: danger
