@@ -17,7 +17,7 @@ on:
 env:
   SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
   SLACK_USERNAME: DeployBot
-  SLACK_CHANNEL: develop
+  SLACK_CHANNEL: 学習
   
 jobs:
   build:
