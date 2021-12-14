@@ -21,23 +21,23 @@ class _GreetingPageState extends State<GreetingPage> {
         child: Column(
           children: <Widget>[
             TextField(
-              controller: _nameCont,
-              decoration: InputDecoration(labelText: '名前'),
               key: const Key('name text field'),
+              decoration: InputDecoration(labelText: '名前'),
+              controller: _nameCont,
             ),
             Text(
               _greeting.greeting(_name),
               key: const Key('greeting text'),
             ),
             ElevatedButton(
+              key: const Key('greeting button'),
               child: Text('あいさつする'),
               onPressed: () {
                 setState(() {
                   _name = _nameCont.text;
                 });
               },
-              key: const Key('greeting button'),
-            )
+            ),
           ],
         ),
       ),

@@ -42,10 +42,19 @@ void main() {
       ),
       '太郎',
     );
-
     await tester.tap(find.text('あいさつする'));
     await tester.pump();
-
     expect(find.text('こんにちは太郎さん'), findsOneWidget);
+
+    // 名前を空にすると初期表示に戻る
+    await tester.enterText(
+      find.byKey(
+        const Key('name text field'),
+      ),
+      '',
+    );
+    await tester.tap(find.text('あいさつする'));
+    await tester.pump();
+    expect(find.text(''), findsOneWidget);
   });
 }
