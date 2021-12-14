@@ -55,6 +55,6 @@ void main() {
     );
     await tester.tap(find.text('あいさつする'));
     await tester.pump();
-    expect(find.text(''), findsOneWidget);
+    expect(find.text('名前を入力してください'), findsOneWidget);
   });
 }

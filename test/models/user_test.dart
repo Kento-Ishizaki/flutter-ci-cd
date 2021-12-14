@@ -9,7 +9,7 @@ void main() {
   });
 
   test('複数のユーザーインスタンスが正常に作成される', () {
-    final _userNames = ['太郎', '花子', 'james'];
+    final _userNames = ['太郎', '花子', 'james', 'bob'];
     final _users = [];
     for (final name in _userNames) {
       final _user = User(id: '1', name: name);
