@@ -1,4 +1,6 @@
 import 'package:flutter_ci_cd/models/greeting.dart';
+import 'package:flutter_ci_cd/models/greeting.mocks.dart';
+import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -12,5 +14,14 @@ void main() {
     final _greeting = Greeting();
     final _result = _greeting.greeting('');
     expect(_result, '名前を入力してください');
+  });
+
+  test('モックテスト', () async {
+    final _greeting = MockGreeting();
+    when(_greeting.slowGreeting()).thenAnswer(
+      (_) async => await Future.value('こんばんは'),
+    );
+    final _result = await _greeting.slowGreeting();
+    expect(_result, 'こんばんは');
   });
 }
