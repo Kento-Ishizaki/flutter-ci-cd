@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  go_router: ^2.5.2
   mockito: ^5.0.16
 
 dev_dependencies:
